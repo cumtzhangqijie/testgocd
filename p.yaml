@@ -1,0 +1,39 @@
+format_version: 10
+pipelines:
+  ancode:
+    group: defaultGroup
+    label_template: ${COUNT}
+    lock_behavior: none
+    display_order: -1
+    materials:
+      github:
+        git: https://github.com/cumtzhangqijie/testgocd.git
+        shallow_clone: false
+        auto_update: true
+        branch: main
+    stages:
+    - stage1:
+        fetch_materials: true
+        keep_artifacts: false
+        clean_workspace: false
+        approval:
+          type: success
+          allow_only_on_success: false
+        jobs:
+          job1:
+            timeout: 0
+            environment_variables:
+              ATTT: ttstx
+            secure_variables:
+              das: AES:enfyxpV1zHTiOemE3tRMNg==:F1Ggy644YC7yS4+5rfAa7A==
+            tasks:
+            - exec:
+                arguments:
+                - jo-----11
+                command: echo
+                run_if: passed
+            - exec:
+                command: pwd
+                run_if: passed
+    parameters:
+      AAA: '12'
